@@ -25,12 +25,17 @@ public class arithmeticCalculatorServlet extends HttpServlet {
 
         String firstNum = request.getParameter("firstNum");
         String secondNum = request.getParameter("secondNum"); 
+        String calculate = request.getParameter("calculate");
         
         request.setAttribute("firstNum", firstNum);
         request.setAttribute("secondNum", secondNum);
+        request.setAttribute("calculate", calculate);
         
         if (firstNum == null || firstNum.equals("") || secondNum == null || secondNum.equals("")) {
-            request.setAttribute("message", "Invalid!");
+            request.setAttribute("result", "Invalid!");
+        }
+        else{
+            request.setAttribute("result", "${firstNum}"+calculate+"${firstNum}");
         }
     }
 }

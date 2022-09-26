@@ -40,6 +40,9 @@ public class ageCalculatorServlet extends HttpServlet {
             
             return;                  
             }
+            else{
+                request.setAttribute("message", "You next birthday will be "+"${age}+1");
+            }
             
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticCalculator.jsp").forward(request, response);          
     }
